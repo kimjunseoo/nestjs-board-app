@@ -12,7 +12,7 @@ export class BoardsController {
     }
 
     @Get('/:id')
-    getBoardById(@Param('id') id: number) : Promise <Board> {
+    getBoardById(@Param('id') id: number) : Promise<Board> {
         return this.boardsService.getBoardById(id);
     }
 
@@ -22,6 +22,10 @@ export class BoardsController {
         return this.boardsService.createBoard(CreateBoardDto)
     }
 
+    @Delete('/:id')
+    deleteBoard(@Param('id') id: number) : Promise<void>{
+        return this.boardsService.deleteBoard(id);
+    }
 /*     @Get('/')
     getAllBoard(): Board[] {
         return this.boardsService.getAllBoards();
