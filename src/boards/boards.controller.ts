@@ -26,6 +26,11 @@ export class BoardsController {
     deleteBoard(@Param('id') id: number) : Promise<void>{
         return this.boardsService.deleteBoard(id);
     }
+
+    @Patch('/:id/status')
+    updateBoardStatus(@Param('id') id: number, @Body('status') status: BoardStatus): Promise<Board>{
+        return this.boardsService.updateBoardStatus(id, status);
+    }
 /*     @Get('/')
     getAllBoard(): Board[] {
         return this.boardsService.getAllBoards();
